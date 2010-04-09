@@ -12,6 +12,12 @@ class Controller_Account extends Controller_Base
 		$this->template->content = View::factory('account/index');
 	}
 
+	public function action_noaccess()
+	{
+		$this->template->title = "No Access";
+		$this->template->content = View::factory('account/noaccess');
+	}
+
 	public function action_register()
 	{	
 		
@@ -23,10 +29,10 @@ class Controller_Account extends Controller_Base
 		}
 		
 		$this->template->title = "Register";
-		#Load the view
-		$content = $this->template->content = View::factory('account/register');
-		$content->post = array();
-		#If there is a post and $_POST is not empty
+
+		$this->template->content = View::factory('account/register');
+		$this->template->content->post = $_POST;
+
 		if ($_POST)
 		{
 			#Instantiate a new user
@@ -57,7 +63,7 @@ class Controller_Account extends Controller_Base
 			else
 			{
 				#Get errors for display in view
-				$content->errors = $post->errors('register');
+				$this->template->content->errors = $post->errors('register');
 			}			
 		}		
 	}

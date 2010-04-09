@@ -1,5 +1,5 @@
 <div id="header">
-	<h1><a href="/">KOBASE</a></h1>
+	<h1><a href="/">CPRFC Alumni</a></h1>
 	<ul id="nav">
 		<li><?php echo html::anchor('','Home')?></li>
 	

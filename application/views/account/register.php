@@ -28,6 +28,10 @@
 	<?php echo form::input('last_name', Arr::get($post, 'last_name', ''), array('id' => 'last_name')) ?>
 </div>
 
+<div class="form-row">
+	<?php echo form::label('email') ?>
+	<?php echo form::input('email', Arr::get($post, 'email', ''), array('id' => 'email')) ?>
+</div>
 
 <div class="form-row">
 	<?php echo form::label('username') ?>
@@ -38,6 +42,12 @@
 	<?php echo form::label('password') ?>
 	<?php echo form::password('password', Arr::get($post, 'password', ''), array('id' => 'password')) ?>
 </div>
+
+<div class="form-row">
+	<?php echo form::label('password_confirm') ?>
+	<?php echo form::password('password_confirm', Arr::get($post, 'password_confirm', ''), array('id' => 'password_confirm')) ?>
+</div>
+
 <?php echo form::submit('submit', 'Register') ?>
 <?php echo form::close(''); ?>
 

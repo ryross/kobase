@@ -2,9 +2,15 @@
 
 class Controller_Base extends Controller_Template
 {
+	public $user;
+	public $auth_required  = FALSE;
+	public $auth_role      = array('login');
+	public $secure_actions = array();
+	
 	public $auto_render = TRUE;
 	public $template = 'template/template';
 	protected $session;
+	
 	
 	public function __construct(Request $request)
 	{
@@ -21,6 +27,24 @@ class Controller_Base extends Controller_Template
 	public function before()
 	{
 		parent::before();
+		
+		$this->session= Session::instance();
+		$action_name = Request::instance()->action;
+		
+		
+		if ( ($this->auth_required == TRUE || in_array( $action_name, $this->secure_actions) )
+				AND Auth::instance()->logged_in($this->auth_role) == FALSE)
+		{
+			if (Auth::instance()->logged_in())
+			{
+				Request::instance()->redirect('account/noaccess');
+			}
+			else
+			{
+				Request::instance()->redirect('account/login');
+			}
+		}
+		
 		if ($this->auto_render)
 		{
 			$this->template->content = '';
