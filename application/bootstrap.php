@@ -8,7 +8,7 @@
  * @see  http://docs.kohanaphp.com/about.configuration
  * @see  http://php.net/timezones
  */
-date_default_timezone_set('America/Chicago');
+date_default_timezone_set('America/Los_Angeles');
 
 /**
  * Set the default locale.
@@ -49,7 +49,7 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
  * - boolean  profile     enable or disable internal profiling               TRUE
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
-Kohana::init(array('base_url' => '/kohana/'));
+Kohana::init(array('base_url' => '/', 'index_file' => ''));
 
 /**
  * Attach the file write to logging. Multiple writers are supported.
@@ -65,13 +65,12 @@ Kohana::$config->attach(new Kohana_Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	// 'auth'       => MODPATH.'auth',       // Basic authentication
-	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-	// 'database'   => MODPATH.'database',   // Database access
+	'auth'       => MODPATH.'auth',       // Basic authentication
+	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
-	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
-	// 'pagination' => MODPATH.'pagination', // Paging of results
-	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	'minify'        => MODPATH.'minify',        // Minifies JS/CSS files
+	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+	'pagination' => MODPATH.'pagination', // Paging of results
 	));
 
 /**
@@ -80,7 +79,7 @@ Kohana::modules(array(
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'main',
 		'action'     => 'index',
 	));
 

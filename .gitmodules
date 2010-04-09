@@ -16,3 +16,6 @@
 [submodule "modules/auth"]
 	path = modules/auth
 	url = git://github.com/kohana/auth.git
+[submodule "modules/minify"]
+	path = modules/minify
+	url = git@github.com:ryross/minify.git

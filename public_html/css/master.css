@@ -1,0 +1,12 @@
+body{font-family:Helvetica, "Helvetica Neue", Arial, sans-serif;text-align:center;}
+h1,h2,h3,h4,h5,h6 {font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;}
+#page { width:960px; position:relative; margin:0 auto; text-align:left;}
+#header {background-color:#aaa;float:left;width:100%;margin-bottom:10px;}
+#header h1 { padding:10px; margin:0;  }
+#header h1 a {text-decoration:none;}
+#header #nav { border-top:1px solid #888; width:100%; margin:0; float:left;}
+#header #nav li {list-style: none; width:100px; float:left;display: block; }
+#header #nav li a {text-align:center;line-height:1;padding: .5em;display: block; }
+#header #nav li a:hover {background-color:#666;color:#000;}
+#content { padding:10px;  background:#ccc; }
+#footer { padding:20px 10px; }

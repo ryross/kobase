@@ -1,4 +1,4 @@
-# Kohana PHP Framework, version 3.0 (dev)
+# KoBase
 
-This is the current development version of [Kohana](http://kohanaphp.com/).
+A base Kohana install with some of my most used modules/files
 
